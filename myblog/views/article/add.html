@@ -1,0 +1,19 @@
+<%- include ../include/header.html %>
+<form method="post" action="/articles/add" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<%= detail._id%>">
+    <div class="form-group">
+        <label for="title">标题</label>
+        <input type="text" class="form-control" name="title" id="title" placeholder="标题" value="<%= detail.title%>">
+    </div>
+    <div class="form-group">
+        <label for="content">内容</label>
+        <textarea class="form-control" name="content" id="content" cols="30" rows="10"><%= detail.content%></textarea>
+    </div>
+    <div class="form-group">
+        <label for="img">图片</label>
+        <img src="<%= detail.img%>" alt="" width="100px" height="100px" >
+        <input type="file" name="img" id="img" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-default">发表</button>
+</form>
+<%- include ../include/footer.html %>

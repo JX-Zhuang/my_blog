@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>博客</title>
+    <link rel="stylesheet" href="/lib/css/bootstrap.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">博客</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <%
+                if(user){
+                %>
+                <li><a href="/articles/add">发表文章</a></li>
+                <li><a href="/users/logout">退出</a></li>
+                <%
+                }else{
+                %>
+                <li class="active"><a href="/users/reg">注册</a></li>
+                <li><a href="/users/login">登录</a></li>
+                <%
+                }
+                %>
+            </ul>
+            <%
+            if(username){
+            %>
+            <p class="navbar-text navbar-right">你好：<%=username%></p>
+            <%
+            }
+            %>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <%
+    if(success){
+    %>
+    <div class="alert alert-success" role="alert"><%=success%></div>
+    <%
+    }
+    %>
+    <%
+    if(error){
+    %>
+    <div class="alert alert-danger" role="alert"><%=error%></div>
+    <%
+    }
+    %>
